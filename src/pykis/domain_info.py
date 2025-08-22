@@ -66,6 +66,9 @@ class DomainInfo:
         """
         모의 투자인 경우, tr_id를 필요에 따라 변경한다.
         """
+        if tr_id == "TTTT1006U" and self.is_virtual():
+            return "VTTT1001U"
+        
         if tr_id is not None and self.is_virtual():
             if len(tr_id) >= 1 and tr_id[0] in ["T", "J", "C"]:
                 return "V" + tr_id[1:]
